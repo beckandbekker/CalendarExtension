@@ -1,2 +1,2 @@
-# CalendarExtension
-BTN Calendar Plugin
+# Calendar Extension
+As students worldwide are transitioning to online school through Microsoft Teams, adapting to the new environment presents challenges... including keeping track of assignments. Teams keeps track of all your assignments but does not show them in one place, which is an inconvenience for many. This repository is where I'll be keeping extensions for Chrome (and possibly Firefox) that will add an assignment calendar to MS Teams
