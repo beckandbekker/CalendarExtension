@@ -1,0 +1,72 @@
+/***** COLOR VARIABLES *****/
+/***** THEME VARIABLES *****/
+html {
+  background: #233140;
+}
+
+.hidden {
+  display: none !important;
+}
+
+div.calendar div#month-view table {
+  width: 90%;
+  max-width: 1000px;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  border: 3px solid #3498db;
+  box-shadow: 10px 10px 15px #141d25, -10px 10px 15px #141d25, 10px -10px 15px #141d25, -10px -10px 15px #141d25;
+  background: #3498db;
+}
+div.calendar div#month-view table button#previous-month, div.calendar div#month-view table button#next-month {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 30%;
+  width: 50%;
+  margin: -15% 0 0 -25%;
+}
+div.calendar div#month-view table thead {
+  color: white;
+  background: #3498db;
+}
+div.calendar div#month-view table th#year-label, div.calendar div#month-view table th#month-label {
+  vertical-align: middle;
+  height: 1.5em;
+  font-family: "Trebuchet MS", sans-serif;
+}
+div.calendar div#month-view table th#year-label {
+  font-size: 30px;
+}
+div.calendar div#month-view table th#month-label {
+  font-size: 80px;
+  text-transform: uppercase;
+}
+div.calendar div#month-view table tr.days-of-week th, div.calendar div#month-view table td {
+  width: 14.3%;
+  height: 80px;
+  border: 1px solid #3498db;
+}
+div.calendar div#month-view table tr.days-of-week th {
+  background: #2e4053;
+  color: white;
+  vertical-align: middle;
+  font: 1.4em "Trebuchet MS", sans-serif;
+}
+div.calendar div#month-view table td {
+  vertical-align: top;
+  background: #34495e;
+  color: white;
+}
+div.calendar div#month-view table td p.day-num {
+  float: left;
+  padding: 5px;
+  font-family: "Trebuchet MS", sans-serif;
+}
+div.calendar div#month-view table td.not-month {
+  background: #46637f;
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

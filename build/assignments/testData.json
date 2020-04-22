@@ -1,0 +1,15 @@
+{
+
+    "presidents": [
+        { "first":"George", "last": "Washington", "served": "1798-1798" },
+        { "first":"John", "last":"Adams", "served":"1797-1801" },
+        { "first":"Thomas", "last":"Jefferson", "served":"1801-1809" }
+    ],
+
+    "vicepresidents": [
+        {"first":"John", "last":"Adams"},
+        {"first":"Thomas", "last":"Jefferson"},
+        {"first":"Aaron", "last":"Burr"}
+    ]
+
+}

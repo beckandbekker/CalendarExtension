@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Calendar</title>
+
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+
+        <div class="calendar">
+            <div id="month-view">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th id='year-label' colspan='7'></th>
+                        </tr>
+                        <tr>
+                            <th style='position: relative'>
+                                <button id='previous-month'>Previous Month</button>
+                            </th>
+                            <th colspan="5" id='month-label'></th>
+                            <th style='position: relative'>
+                                <button id='next-month'>Next Month</button>
+                            </th>
+                        </tr>
+                        <tr class='days-of-week'>
+                            <th>Sunday</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id='calendar-body' is='transition-ground'>
+                        
+                        <tr>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                        </tr>
+                        <tr id='last-week'>
+                            <td id='last-sunday' class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                            <td class='day-square'>
+                                <p class='day-num'></p>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+
+                    </tfoot>
+
+                </table>
+
+            </div>
+        </div>
+
+        <script src="scripts/helper.js" type='text/javascript'></script>
+        <script src="scripts/dateConsts.js" type='text/javascript'></script>
+        <script src="scripts/calendar.js" type='text/javascript'></script>
+
+    </body>
+</html>

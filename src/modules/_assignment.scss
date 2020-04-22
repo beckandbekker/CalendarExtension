@@ -1,0 +1,43 @@
+$assignmentFontStack: 'Trebuchet MS', sans-serif;
+
+$assignmentColor: $white;
+$assignmentBack: darken($midnight-blue, 15%);
+
+$assignmentBorder: none;
+$assignmentBorderRadius: 10px;
+
+div#assignment {
+
+    width: 80%;
+    max-width: 1000px;
+
+    padding: 3em;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: $assignmentBorder;
+    border-radius: $assignmentBorderRadius;
+
+    color: $assignmentColor;
+    background: $assignmentBack;
+
+    font: 20px $assignmentFontStack;
+
+    > h4, > p#due {
+        margin-top: 0.5em;
+    }
+
+    > h1 {
+        font-size: 30px;
+        text-decoration: underline;
+    }
+
+    > div#instructions > * {
+        margin-top: 0.5em;
+        margin-left: 2em;
+    }
+
+}

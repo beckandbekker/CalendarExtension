@@ -1,0 +1,122 @@
+
+$calendarFontStack: 'Trebuchet MS', sans-serif;
+
+$calendarBack: $accentColor;
+
+$calendarBorder: 3px solid $calendarBack;
+
+$calendarHeaderBack: $accentColor;
+$calendarHeaderColor: $white;
+
+$calendarMonthLabelIsUpper: true;
+
+$calendarDaysBack: darken($wet-asphalt, 3.5%);
+$calendarDaysColor: $white;
+
+$calendarTdBack: $wet-asphalt;
+$calendarTdColor: $white;
+
+$calendarNotMonthBack: lighten($calendarTdBack, 10%);
+$calendarNotMonthColor: $calendarTdColor;
+
+$calendarShadowHOffset: 10px;
+$calendarShadowVOffset: 10px;
+$calendarShadowBlur: 30px;
+$calendarShadowColor: opacify(darken($midnight-blue, 13%), 0.5);
+$calendarShadow: $calendarShadowHOffset $calendarShadowVOffset $calendarShadowBlur / 2 $calendarShadowColor,
+                 $calendarShadowHOffset * -1 $calendarShadowVOffset $calendarShadowBlur / 2 $calendarShadowColor,
+                 $calendarShadowHOffset $calendarShadowVOffset * -1 $calendarShadowBlur / 2 $calendarShadowColor,
+                 $calendarShadowHOffset * -1 $calendarShadowVOffset * -1 $calendarShadowBlur / 2 $calendarShadowColor;
+
+div.calendar div#month-view {
+    
+    table {
+
+        width: 90%;
+        max-width: 1000px;
+
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+
+        border: $calendarBorder;
+
+        box-shadow: $calendarShadow;
+
+        background: $calendarBack;
+
+        button#previous-month, button#next-month {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 30%;
+            width: 50%;
+            margin: -15% 0 0 -25%;
+        }
+
+        thead {
+            color: $calendarHeaderColor;
+            background: $calendarHeaderBack;
+        }
+
+        th#year-label, th#month-label {
+
+            vertical-align: middle;
+
+            height: 1.5em;
+            font-family: $calendarFontStack;
+
+        }
+
+        th#year-label {
+            font-size: 30px;
+        }
+
+        th#month-label {
+            font-size: 80px;
+    
+            @if $calendarMonthLabelIsUpper {
+                text-transform: uppercase;
+            }
+        }
+    
+        tr.days-of-week th, td {
+    
+            width: 14.3%;
+            height: 80px;
+    
+            border: 1px solid $calendarBack;
+    
+        }
+    
+        tr.days-of-week th {
+            background: $calendarDaysBack;
+            color: $calendarDaysColor;
+            vertical-align: middle;
+            font: 1.4em $calendarFontStack;
+        }
+    
+        td {
+    
+            vertical-align: top;
+
+            background: $calendarTdBack;
+            color: $calendarTdColor;
+    
+            p.day-num {
+                float: left;
+                padding: 5px;
+                font-family: $calendarFontStack;
+            }
+    
+        }
+    
+        td.not-month {
+            background: $calendarNotMonthBack;
+            color: $calendarNotMonthColor;
+        }
+
+    }    
+
+}
