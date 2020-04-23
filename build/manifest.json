@@ -6,15 +6,28 @@
     "description": "Makes a calendar for MS Teams Educations accounts with no access to an assignment calendar",
 
     "permissions": ["storage"],
-    "background": {
-        "scripts": [
-            "scripts/calendar.js",
-            "scripts/dateConsts.js",
-            "scripts/helper.js",
-            "scripts/main.js"
-        ],
-        "persistent": false
-    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://teams.microsoft.com/*"
+            ],
+            "js": [
+                "scripts/calendar.js",
+                "scripts/dateConsts.js",
+                "scripts/helper.js",
+                "scripts/main.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://assignments.onenote.com/*"
+            ],
+            "js": [
+                "scripts/dateConsts.js", "scripts/reader.js"
+            ],
+            "all_frames": true
+        }
+    ],
 
     "browser_action": {
         "default_popup": "popup.html"
