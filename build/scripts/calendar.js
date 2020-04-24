@@ -105,6 +105,7 @@ class Calendar {
 
                     teams.push(new Team(cl["class-name"], events));
 
+
                 });
 
             }
