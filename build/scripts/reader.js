@@ -6,7 +6,10 @@ function tryRead() {
     if (allAssignmentss.length == 1) {
         var allAssignments = allAssignmentss[0];
 
-        if (allAssignments.innerHTML.indexOf("Nothing left to turn in") != -1) {
+        if (
+            allAssignments.innerHTML.indexOf("Nothing left to turn in") != -1 ||
+            allAssignments.innerHTML.indexOf("If your teacher sets up Assignments for this class, you'll find them here.") != -1
+        ) {
             alert("No assignments!");
 
             return true;

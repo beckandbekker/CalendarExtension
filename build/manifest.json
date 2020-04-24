@@ -5,7 +5,11 @@
     "version": "0.1",
     "description": "Makes a calendar for MS Teams Educations accounts with no access to an assignment calendar",
 
-    "permissions": ["storage"],
+    "permissions": [
+        "storage",
+        "activeTab"
+    ],
+
     "content_scripts": [
         {
             "matches": [
@@ -15,7 +19,8 @@
                 "scripts/calendar.js",
                 "scripts/dateConsts.js",
                 "scripts/helper.js",
-                "scripts/main.js"
+                "scripts/main.js",
+                "scripts/messages.js"
             ]
         },
         {
@@ -29,8 +34,18 @@
         }
     ],
 
+    "background": {
+        "scripts": ["scripts/messages.js", "scripts/classes.js"]
+    },
+
     "browser_action": {
-        "default_popup": "popup.html"
+        "default_icon": "icons/icon.png",
+        "default_title": "MS Teams Homework Calendar",
+        "default_popup": "popup/popup.html"
+    },
+
+    "icons": {
+        "48": "icons/icon.png"
     },
     
     "manifest_version": 2
