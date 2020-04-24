@@ -1,4 +1,13 @@
-// interact.js requires messages.js
-// if it gets more complicated, we'll need a way to manage dependencies...
+var rescanTeamsButton = document.getElementById("rescan_teams");
+var scanHomeworkButton = document.getElementById("scan_homework");
+
+// for sending messages
 browser.tabs.executeScript({file: "/scripts/messages/messages.js"});
-browser.tabs.executeScript({file: "/scripts/messages/interact.js"});
+
+rescanTeamsButton.onclick = function () {
+    browser.tabs.executeScript({file: "/scripts/messages/interactions/rescanTeamsButton.js"});
+}
+
+scanHomeworkButton.onclick = function () {
+    browser.tabs.executeScript({file: "/scripts/messages/interactions/scanHomeworkButton.js"});
+}

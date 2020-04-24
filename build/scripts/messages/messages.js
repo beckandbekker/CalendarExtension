@@ -1,7 +1,8 @@
 var Messages = {};
 
 Messages.protocols = {
-    "REQUEST_SCAN": 0
+    "REQUEST_SCAN": 0,
+    "REQUEST_TEAMS_RESCAN": 1
 };
 
 Messages.form = function (protocol, msg) {

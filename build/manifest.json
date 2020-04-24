@@ -36,8 +36,10 @@
     "background": {
         "scripts": [
             "scripts/messages/messages.js",
+            "scripts/utils/utils.js",
 
             "scripts/assignments/assignmentReader_bg.js",
+            "scripts/assignments/tabs/assignmentsTabs.js",
             
             "scripts/messages/messageHandler.js"
         ]
