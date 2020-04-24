@@ -1,4 +1,8 @@
-function requestScan() {
+// background script that opens up all assignment tabs in order for them to be read
+
+var AssignmentReader = {};
+
+AssignmentReader.requestScan = function() {
     browser.windows.create({
     }).then(function (windowInfo) {
         browser.tabs.create({
@@ -11,11 +15,3 @@ function requestScan() {
         console.log(e);
     });
 }
-
-function handleMessage(req, sender, respond) {
-    if (req.protocol == Messages.protocols.REQUEST_SCAN) {
-        requestScan();
-    }
-}
-
-browser.runtime.onMessage.addListener(handleMessage);

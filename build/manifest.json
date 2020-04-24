@@ -19,8 +19,7 @@
                 "scripts/calendar.js",
                 "scripts/dateConsts.js",
                 "scripts/helper.js",
-                "scripts/main.js",
-                "scripts/messages.js"
+                "scripts/messages/messages.js"
             ]
         },
         {
@@ -28,14 +27,20 @@
                 "https://assignments.onenote.com/*"
             ],
             "js": [
-                "scripts/dateConsts.js", "scripts/reader.js"
+                "scripts/dateConsts.js", "scripts/assignments/assignmentReader_cs.js"
             ],
             "all_frames": true
         }
     ],
 
     "background": {
-        "scripts": ["scripts/messages.js", "scripts/classes.js"]
+        "scripts": [
+            "scripts/messages/messages.js",
+
+            "scripts/assignments/assignmentReader_bg.js",
+            
+            "scripts/messages/messageHandler.js"
+        ]
     },
 
     "browser_action": {

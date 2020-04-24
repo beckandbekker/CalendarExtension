@@ -1,3 +1,6 @@
+// content script that runs on OneNote assignment websites and communicates the assignments to the
+// assignment reader background script
+
 function tryRead() {
     // contains uncompleted and completed assignments. Don't care about completed
     // allAssignmentss SHOULD only have 1 element when loaded. Just in case, check
@@ -139,19 +142,10 @@ function read(assignments) {
     }
 }
 
-// idk the order it loads the scripts in, so we keep waiting until dateConsts is loaded and therefore MONTHS is defined
-var int = setInterval(function () {
-    try {
-        var m = MONTHS[0];
-
-        clearTimeout(int);
-
-        if (!tryRead()) {
-            var int2 = setInterval(function () {
-                if (tryRead()) {
-                    clearInterval(int2);
-                }
-            }, 1000);
+if (!tryRead()) {
+    var int = setInterval(function () {
+        if (tryRead()) {
+            clearInterval(int);
         }
-    } catch {}
-}, 20);
+    }, 1000);
+}
