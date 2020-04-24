@@ -3,6 +3,7 @@
 var AssignmentsTabs = {};
 
 var scanning = false;
+var teamCount;
 
 AssignmentsTabs.requestRescan = function () {
     // avoid people breaking it
@@ -12,9 +13,19 @@ AssignmentsTabs.requestRescan = function () {
 
     browser.windows.create({
         "url": "https://teams.microsoft.com/_#/school//?ctx=teamsGrid" // home page
-    }).then(function (windowInfo) {
-        scanning = false;
+    }).then(function (window) {
+        // Teams home page tab
+        browser.tabs.sendMessage(
+            window.tabs[0].id,
+            Messages.form(Messages.protocols.GET_TEAM_COUNT)
+        );
     }).catch(function (e) {
         scanning = false;
     });
+}
+
+AssignmentsTabs.sendTeamCount = function (count) {
+    teamCount = count;
+
+    scanning = false;
 }

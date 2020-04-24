@@ -16,10 +16,12 @@
                 "https://teams.microsoft.com/*"
             ],
             "js": [
-                "scripts/calendar.js",
                 "scripts/dateConsts.js",
                 "scripts/helper.js",
-                "scripts/messages/messages.js"
+                "scripts/calendar.js",
+                "scripts/messages/messages.js",
+                "scripts/messages/errorReporter.js",
+                "scripts/assignments/tabs/assignmentsTabs_cs.js"
             ]
         },
         {
@@ -39,7 +41,7 @@
             "scripts/utils/utils.js",
 
             "scripts/assignments/assignmentReader_bg.js",
-            "scripts/assignments/tabs/assignmentsTabs.js",
+            "scripts/assignments/tabs/assignmentsTabs_bg.js",
             
             "scripts/messages/messageHandler.js"
         ]
