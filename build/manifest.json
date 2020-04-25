@@ -16,6 +16,8 @@
                 "https://teams.microsoft.com/_*"
             ],
             "js": [
+                "scripts/utils/utils.js",
+
                 "scripts/dateConsts.js",
                 "scripts/helper.js",
 
@@ -34,6 +36,8 @@
                 "https://assignments.onenote.com/*"
             ],
             "js": [
+                "scripts/utils/utils.js",
+                
                 "scripts/dateConsts.js",
                 "scripts/assignments/assignmentReader_cs.js",
                 "scripts/messages/messages.js",
@@ -45,6 +49,8 @@
 
     "background": {
         "scripts": [
+            "scripts/utils/utils.js",
+            
             "scripts/messages/messages.js",
             "scripts/messages/messageHandler.js",
 

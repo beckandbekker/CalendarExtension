@@ -9,15 +9,6 @@ MessageHandler.handleMessage = function (msg) {
     }
 }
 
-// MessageHandler.reportError = function (e) {
-//     browser.tabs.getCurrent().then(function (tab) {
-//         browser.tabs.sendMessage(
-//             tab.id,
-//             Messages.form(Messages.protocols.ERROR, e)
-//         );
-//     });
-// }
-
 MessageHandler.onConnect = function (port) {
     port.postMessage(Messages.form(Messages.protocols.PONG));
 
@@ -48,7 +39,7 @@ MessageHandler.getPort = function (id) {
     return MessageHandler.ports[id];
 }
 
-browser.runtime.onConnect.addListener(MessageHandler.onConnect);
+brows.runtime.onConnect.addListener(MessageHandler.onConnect);
 
 
 

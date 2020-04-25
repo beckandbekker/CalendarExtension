@@ -26,7 +26,7 @@ var messageHandler = function (msg) {
 var port;
 
 Messages.createPort = function () {
-    port = browser.runtime.connect();
+    port = brows.runtime.connect();
     port.onMessage.addListener(messageHandler);
 }
 
