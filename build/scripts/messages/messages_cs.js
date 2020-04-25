@@ -1,13 +1,12 @@
 Messages.callbacks = {};
 Messages.on = function (protocol, callback) {
-    try {
     if (protocol != undefined) {
-        Messages.callbacks[protocol] = callback;
-        //alert("Successful callback!");
+        if (Messages.callbacks[protocol] == undefined) {
+            Messages.callbacks[protocol] = [];
+        }
+
+        Messages.callbacks[protocol].push(callback);
     }
-} catch(e) {
-    alert(e);
-}
 }
 
 
@@ -15,8 +14,12 @@ Messages.on = function (protocol, callback) {
 var messageHandler = function (msg) {
     var protocol = msg.protocol;
 
-    if (Messages.callbacks[protocol] != undefined) {
-        Messages.callbacks[protocol](msg.message);
+    var callbacks = Messages.callbacks[protocol];
+
+    if (callbacks != undefined) {
+        for (var i = 0; i < callbacks.length; i++) {
+            callbacks[i](msg.message);
+        }
     }
 }
 
@@ -27,15 +30,12 @@ Messages.createPort = function () {
     port.onMessage.addListener(messageHandler);
 }
 
-if (!Messages.delayPort) {
-    Messages.createPort();
-}
+Messages.createPort();
 
 Messages.send = function (protocol, message) {
     try {
-    port.postMessage(Messages.form(protocol, message));
+        port.postMessage(Messages.form(protocol, message));
     } catch (e) {
         console.log(e);
     }
-    console.log("sent!");
 }

@@ -25,7 +25,6 @@
                 "scripts/tasks/Task_cs.js",
                 "scripts/tasks/list/ScanTeams/scanTeams.js",
 
-
                 "scripts/stillThere.js",
                 "scripts/calendar.js"
             ]

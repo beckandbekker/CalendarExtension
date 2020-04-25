@@ -1,23 +1,23 @@
-var teams;
+Tasks.ScanTeams = {}
 
-function test() {
-    teams = document.getElementsByClassName("team-card");
-    return teams.length != 0;
+var OpenHome = {};
+
+OpenHome.test = function() {
+    OpenHome.teams = document.getElementsByClassName("team-card");
+    return OpenHome.teams.length != 0;
 }
 
-function getTeamCount() {
-    if (!test) {
+OpenHome.execute = function() {
+    if (!OpenHome.test()) {
         var int = setInterval(function () {
-            if (test) {
+            if (OpenHome.test()) {
                 clearInterval(int);
 
-                alert(teams.length);
-                finish(teams.length);
+                alert(OpenHome.teams.length);
+                finish(OpenHome.teams.length);
             }
-        }, 1000);
+        }, 200);
     }
 }
 
-getTeamCount();
-
-// https://teams.microsoft.com/_#/school
+Tasks.ScanTeams.OpenHome = OpenHome;

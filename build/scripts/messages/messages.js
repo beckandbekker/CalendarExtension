@@ -8,8 +8,6 @@ Messages.protocols = {
     "PONG": 4
 };
 
-Messages.delayPort = false;
-
 
 
 Messages.form = function (protocol, msg) {

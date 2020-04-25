@@ -1,11 +1,12 @@
 class Task {
-    constructor() {
+    constructor(name) {
         this.tabs = [];
         this.steps = {};
         this.connected = 0;
         this.completed = 0;
         this.total = 0;
         this.progress = 0;
+        this.name = name;
     }
 
     start() {
@@ -22,27 +23,30 @@ class Task {
     }
 
     assignTabStep(id, step, info) {
-        var ret = new Promise();
+        var that = this;
 
-        MessageHandler.onLoad(id, function (id, port) {
-            this.steps[id] = step;
-
-            port.postMessage(Messages.form(
-                Messages.protocols.STEP_INIT,
-                {
-                    "script": step.script,
-                    "info": info
-                }
-            ));
-
-            port.onMessage.addListener(function (msg) {
-                if (msg.protocol == Messages.protocols.STEP_END) {
-                    this.steps[id].onFinish(msg.info);
-                    this.steps[id] = undefined;
-                }
+        var ret = new Promise(function (resolve, reject) {
+            MessageHandler.onLoad(id, function (id, port) {
+                that.steps[id] = step;
+    
+                port.postMessage(Messages.form(
+                    Messages.protocols.STEP_INIT,
+                    {
+                        "task": that.name,
+                        "step": step.step,
+                        "info": info
+                    }
+                ));
+    
+                port.onMessage.addListener(function (msg) {
+                    if (msg.protocol == Messages.protocols.STEP_END) {
+                        that.steps[id].onFinish(msg.message);
+                        that.steps[id] = undefined;
+                    }
+                });
+    
+                resolve();
             });
-
-            ret.resolve();
         });
 
         return ret;
@@ -50,8 +54,8 @@ class Task {
 }
 
 class Step {
-    constructor(script) {
-        this.script = script;
+    constructor(step) {
+        this.step = step;
     }
 
     onFinish(info) {

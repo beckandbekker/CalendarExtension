@@ -19,21 +19,25 @@ MessageHandler.handleMessage = function (msg) {
 // }
 
 MessageHandler.onConnect = function (port) {
-    port.sendMessage(Messages.form(Messages.protocols.PONG));
-    var id = port.sender.tab.id;
-    MessageHandler.ports[port.sender.tab.id] = port;
+    port.postMessage(Messages.form(Messages.protocols.PONG));
 
-    var callbacks = MessageHandler.loadCallbacks[id];
+    // not always from a tab, there are popup ports
+    if (port.sender.tab != undefined) {
+        var id = port.sender.tab.id;
+        MessageHandler.ports[port.sender.tab.id] = port;
 
-    if (callbacks != undefined) {
-        for (var i = 0; i < callbacks.length; i++) {
-            callbacks[i](id, port);
+        var callbacks = MessageHandler.loadCallbacks[id];
+
+        if (callbacks != undefined) {
+            for (var i = 0; i < callbacks.length; i++) {
+                callbacks[i](id, port);
+            }
         }
+
+        MessageHandler.loadCallbacks[id] = undefined;
     }
 
-    port.onMessage.addListener(handleMessage);
-
-    MessageHandler.loadCallbacks[id] = undefined;
+    port.onMessage.addListener(MessageHandler.handleMessage);
 }
 
 MessageHandler.isConnected = function (id) {
@@ -62,5 +66,5 @@ MessageHandler.onLoad = function (id, callback) {
         MessageHandler.loadCallbacks[id] = [];
     }
 
-    MessageHandler.loadCallbacks.push(callback);
+    MessageHandler.loadCallbacks[id].push(callback);
 }

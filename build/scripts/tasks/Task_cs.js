@@ -1,9 +1,10 @@
 var stepInfo;
 
+var Tasks = {};
+
 Messages.on(Messages.protocols.STEP_INIT, function (msg) {
     stepInfo = msg.info;
-
-    browser.tabs.executeScript({file: msg.script});
+    Tasks[msg.task][msg.step].execute(stepInfo);
 });
 
 function finish(info) {
