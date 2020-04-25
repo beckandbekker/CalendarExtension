@@ -16,9 +16,9 @@ class ScanTeams extends Task {
     start() {
         var that = this;
 
-        brows.windows.create({
+        createWindow({
             "url": "https://teams.microsoft.com/_#/school//?ctx=teamsGrid" // home page
-        }).then(function (window) {
+        }, function (window) {
             var id = window.tabs[0].id;
 
             that.addTab(id);
