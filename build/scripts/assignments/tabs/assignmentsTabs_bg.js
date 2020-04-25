@@ -2,30 +2,53 @@
 
 var AssignmentsTabs = {};
 
-var scanning = false;
-var teamCount;
+AssignmentsTabs.scanning = false;
+AssignmentsTabs.teamCount = -1;
+AssignmentsTabs.queue = [];
+
+AssignmentsTabs.addToQueue = function (id, msg, callback) {
+    if (callback == undefined) {
+        callback = function (id) {
+
+        }
+    }
+    AssignmentsTabs.queue[id] = {
+        "msg": msg,
+        "callback": callback
+    };
+}
 
 AssignmentsTabs.requestRescan = function () {
     // avoid people breaking it
-    if (scanning) { return; }
+    if (AssignmentsTabs.scanning) { return; }
 
-    scanning = true;
+    AssignmentsTabs.scanning = true;
 
     browser.windows.create({
         "url": "https://teams.microsoft.com/_#/school//?ctx=teamsGrid" // home page
     }).then(function (window) {
-        // Teams home page tab
-        browser.tabs.sendMessage(
+        AssignmentsTabs.addToQueue(
             window.tabs[0].id,
-            Messages.form(Messages.protocols.GET_TEAM_COUNT)
+            Messages.form(
+                Messages.protocols.GET_TEAM_COUNT
+            )
         );
-    }).catch(function (e) {
-        scanning = false;
+    }, function (e) {
+        MessageHandler.reportError(e);
+        AssignmentsTabs.scanning = false;
     });
 }
 
 AssignmentsTabs.sendTeamCount = function (count) {
-    teamCount = count;
+    AssignmentsTabs.teamCount = count;
 
-    scanning = false;
+    AssignmentsTabs.scanning = false;
+}
+
+AssignmentsTabs.loaded = function (id) {
+    if (AssignmentsTabs.queue[id] == undefined) { return; }
+
+    browser.tabs.sendMessage(id, queue[id].msg);
+    queue[id].callback(id);
+    queue[id] = undefined;
 }

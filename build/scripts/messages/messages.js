@@ -1,15 +1,16 @@
-alert("hey!");
-
 var Messages = {};
 
 Messages.protocols = {
-    "REQUEST_SCAN": 0,
-    "REQUEST_TEAMS_RESCAN": 1,
-    "GET_TEAM_COUNT": 3,
-    "SEND_TEAM_COUNT": 4,
-    "READ_TEAM_URLS": 5,
-    "ERROR": 7
+    "ERROR": 0,
+    "STEP_INIT": 1,
+    "STEP_END": 2,
+    "REQUEST_TEAMS_RESCAN": 3,
+    "PONG": 4
 };
+
+Messages.delayPort = false;
+
+
 
 Messages.form = function (protocol, msg) {
     // Give JavaScript enums please!

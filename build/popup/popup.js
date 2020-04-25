@@ -1,13 +1,13 @@
 var rescanTeamsButton = document.getElementById("rescan_teams");
 var scanHomeworkButton = document.getElementById("scan_homework");
 
-// for sending messages
-browser.tabs.executeScript({file: "/scripts/messages/messages.js"});
+Messages.on(Messages.protocols.PONG, function () {
+    alert("Pog!");
+});
 
 rescanTeamsButton.onclick = function () {
-    browser.tabs.executeScript({file: "/scripts/messages/interactions/rescanTeamsButton.js"});
+    Messages.send(Messages.protocols.REQUEST_TEAMS_RESCAN);
 }
 
 scanHomeworkButton.onclick = function () {
-    browser.tabs.executeScript({file: "/scripts/messages/interactions/scanHomeworkButton.js"});
 }

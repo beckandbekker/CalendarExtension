@@ -1,7 +1,5 @@
 var teams;
 
-alert("Running!");
-
 function getTeamCount() {
     function test() {
         teams = document.getElementsByClassName("team-card");
@@ -25,16 +23,15 @@ function getTeamCount() {
     }
 }
 
-try {
-    alert("Running!");
+browser.tabs.getCurrent().then(function (tab) {
+    browser.runtime.sendMessage(Messages.form(Messages.protocols.TEAMS_LOAD, tab.id));
+});
+
 browser.runtime.onMessage.addListener(function (req) {
     alert(JSON.stringify(req));
-    if (req.protocol == Messages.protocols.GET_TEAM_COUNT) {
-        getTeamCount();
-    }
+    // if (req.protocol == Messages.protocols.GET_TEAM_COUNT) {
+    //     getTeamCount();
+    // }
 });
-} catch (e) {
-    alert(e);
-}
 
 // https://teams.microsoft.com/_#/school

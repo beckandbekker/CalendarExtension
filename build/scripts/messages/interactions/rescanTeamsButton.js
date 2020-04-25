@@ -1,4 +1,8 @@
-browser.runtime.sendMessage(Messages.form(Messages.protocols.REQUEST_TEAMS_RESCAN)).then(function() {
-}, function (e) {
+alert("hi!")
+try {
+Messages.createPort();
+} catch(e) {
     console.log(e);
-});
+}
+alert("Created port");
+Messages.send(Messages.protocols.REQUEST_TEAMS_RESCAN);

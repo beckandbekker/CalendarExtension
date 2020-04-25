@@ -13,15 +13,21 @@
     "content_scripts": [
         {
             "matches": [
-                "https://teams.microsoft.com/*"
+                "https://teams.microsoft.com/_*"
             ],
             "js": [
                 "scripts/dateConsts.js",
                 "scripts/helper.js",
-                "scripts/calendar.js",
+
                 "scripts/messages/messages.js",
-                "scripts/messages/errorReporter.js",
-                "scripts/assignments/tabs/assignmentsTabs_cs.js"
+                "scripts/messages/messages_cs.js",
+
+                "scripts/tasks/Task_cs.js",
+                "scripts/tasks/list/ScanTeams/scanTeams.js",
+
+
+                "scripts/stillThere.js",
+                "scripts/calendar.js"
             ]
         },
         {
@@ -29,7 +35,10 @@
                 "https://assignments.onenote.com/*"
             ],
             "js": [
-                "scripts/dateConsts.js", "scripts/assignments/assignmentReader_cs.js"
+                "scripts/dateConsts.js",
+                "scripts/assignments/assignmentReader_cs.js",
+                "scripts/messages/messages.js",
+                "scripts/messages/messages_cs.js"
             ],
             "all_frames": true
         }
@@ -38,12 +47,10 @@
     "background": {
         "scripts": [
             "scripts/messages/messages.js",
-            "scripts/utils/utils.js",
+            "scripts/messages/messageHandler.js",
 
-            "scripts/assignments/assignmentReader_bg.js",
-            "scripts/assignments/tabs/assignmentsTabs_bg.js",
-            
-            "scripts/messages/messageHandler.js"
+            "scripts/tasks/Task_bg.js",
+            "scripts/tasks/list/ScanTeams/scanTeams_bg.js"
         ]
     },
 
