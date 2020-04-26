@@ -1,8 +1,9 @@
 
 class Assignment {
 
-    constructor(assignmentName, dateStr) {
+    constructor(assignmentName, className, dateStr) {
         this.assignmentName = assignmentName;
+        this.className = className;
         this.date = new Date(dateStr);
     }
 
