@@ -1,0 +1,59 @@
+
+$popupBack: $wet-asphalt;
+
+$popupButtonRadius: 30px;
+
+$popupButtonBorder: none;
+
+$popupButtonTransition: background 500ms;
+
+$popupButtonColor: $white;
+$popupButtonBack: $accentColor;
+$popupButtonBackOnHover: $emerald;
+
+$popupButtonFontStack: $fontStack;
+$popupButtonFontSize: 20px;
+
+
+html {
+    width: 300px;
+    height: 300px;
+
+    background: $popupBack;
+
+    outline: 1px dashed red;
+}
+
+div {
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    button {
+
+        width: 200px;
+        height: 60px;
+
+        margin: 10px auto;
+
+        display: block;
+
+        border: $popupButtonBorder;
+        border-radius: $popupButtonRadius;
+
+        transition: $popupButtonTransition;
+
+        background: $popupButtonBack;
+        color: $popupButtonColor;
+
+        font: $popupButtonFontSize $popupButtonFontStack;
+
+    }
+
+    button:hover {
+        background: $popupButtonBackOnHover;
+    }
+
+}
