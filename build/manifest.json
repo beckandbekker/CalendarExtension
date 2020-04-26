@@ -18,7 +18,7 @@
             "js": [
                 "scripts/utils/utils.js",
 
-                "scripts/dateConsts.js",
+                "scripts/consts.js",
                 "scripts/helper.js",
 
                 "scripts/messages/messages.js",
@@ -37,7 +37,7 @@
             "js": [
                 "scripts/utils/utils.js",
                 
-                "scripts/dateConsts.js",
+                "scripts/consts.js",
                 "scripts/assignments/assignmentReader_cs.js",
                 "scripts/messages/messages.js",
                 "scripts/messages/messages_cs.js"
