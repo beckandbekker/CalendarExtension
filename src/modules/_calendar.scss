@@ -136,40 +136,54 @@ div.calendar div#month-view {
 
                 button.day-assignment {
 
-                height: 50px;
-                
-                margin: 0;
-                padding: 0;
+                    height: 50px;
+                    
+                    margin: 0;
+                    padding: 0;
 
-                float: right;
-                position: relative;
-                top: 50%;
-                right: 50%;
-                transform: translate(50%, 25%);
+                    float: right;
+                    position: relative;
+                    top: 50%;
+                    right: 50%;
+                    transform: translate(50%, 25%);
 
-                transition: color 500ms;
+                    transition: color 500ms;
 
-                background: none;
-                border: none;
-                color: $calendarTdColor;
+                    background: none;
+                    border: none;
+                    color: $calendarTdColor;
 
-                font-size: 50px;
+                    font-size: 50px;
 
                 }
 
                 button.day-assignment:hover {
                     color: darken($calendarTdColor, 10%);
+                    background: red;
                 }
 
-
                 div.day-assignment-content {
+
+                    position: relative;
+
                     display: none;
 
-                    height: 200px;
-                    width: 300px;
+                    min-height: 200px;
+                    min-width: 300px;
 
                     background: $calendarAssignmentDropBack;
                     color: $calendarAssignmentDropColor;
+
+                    font-family: $calendarFontStack;
+                    font-size: 20px;
+
+                    * {
+                        outline: 1px dashed red;
+                    }
+
+                    li {
+                        margin-left: 1.3em;
+                    }
 
                     a:link, a:visited {
                         color: $calendarAssignmentDropColor;

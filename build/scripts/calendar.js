@@ -162,20 +162,30 @@ class Calendar {
             var classes = Object.keys(monthEvents[`${key}`]);
             var date = parseInt(monthKeys)
             var dayContent = daySquares[this.monthInfo.firstDayOfWeek + date - 1].children[1];
-            var linkString = '';
-
-            console.log(monthEvents[`${key}`]);
+            var contents = '';
             
             dayContent.children[0].classList.remove('hidden');
 
             classes.forEach( cl => {
+                
+                contents += `<h4>${cl}</h4>`;
 
-                linkString += `<a href="classes/${cl}">${cl}</a>`
+                var assignments = monthEvents[`${key}`][`${cl}`];
+
+                var assignmentsList = '';
+
+                assignments.forEach( a => {
+
+                    contents += `<li><p>${a["assignment-name"]} Due ${new Date(a["due-date"]).toLocaleString()}</p></li>`;
+
+                });
+
+                if (assignmentsList.length != 0)
+                    contents += `<ul>${assignmentsList}</ul>`;
 
             });
 
-            console.log(linkString);
-            dayContent.children[1].innerHTML = linkString;
+            dayContent.children[1].innerHTML = contents;
 
         });
         
