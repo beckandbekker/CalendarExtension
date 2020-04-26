@@ -1,5 +1,5 @@
 
-$calendarFontStack: 'Trebuchet MS', sans-serif;
+$calendarFontStack: $fontStack;
 
 $calendarBack: $accentColor;
 
@@ -28,12 +28,20 @@ $calendarShadow: $calendarShadowHOffset $calendarShadowVOffset $calendarShadowBl
                  $calendarShadowHOffset $calendarShadowVOffset * -1 $calendarShadowBlur / 2 $calendarShadowColor,
                  $calendarShadowHOffset * -1 $calendarShadowVOffset * -1 $calendarShadowBlur / 2 $calendarShadowColor;
 
+$calendarTodayBorder: none;
+$calendarTodayBack: darken($calendarTdBack, 7%);
+$calendarTodayColor: $calendarTdColor;
+
+$calendarAssignmentDropBack: $white;
+$calendarAssignmentDropColor: $accentColor;
+
 div.calendar div#month-view {
     
     table {
 
         width: 90%;
-        max-width: 1000px;
+        min-width: 1000px;
+        max-width: 1250px;
 
         position: absolute;
         top: 150px;
@@ -47,12 +55,24 @@ div.calendar div#month-view {
         background: $calendarBack;
 
         button#previous-month, button#next-month {
+
+            height: 30%;
+            width: 50%;
+            
+            margin: -15% 0 0 -25%;
+        
             position: absolute;
             top: 50%;
             left: 50%;
-            height: 30%;
-            width: 50%;
-            margin: -15% 0 0 -25%;
+
+            transition: color 500ms;
+
+            background: none;
+            border: none;
+            color: $calendarHeaderColor;
+
+            font-size: 40px;
+
         }
 
         thead {
@@ -81,7 +101,7 @@ div.calendar div#month-view {
             }
         }
     
-        tr.days-of-week th, td {
+        tr.days-of-week th, td.day-square {
     
             width: 14.3%;
             height: 80px;
@@ -97,9 +117,11 @@ div.calendar div#month-view {
             font: 1.4em $calendarFontStack;
         }
     
-        td {
+        td.day-square {
     
             vertical-align: top;
+
+            transition: height 500ms, width 500ms;
 
             background: $calendarTdBack;
             color: $calendarTdColor;
@@ -109,12 +131,77 @@ div.calendar div#month-view {
                 padding: 5px;
                 font-family: $calendarFontStack;
             }
+
+            div.day-dropdown {
+
+                button.day-assignment {
+
+                height: 50px;
+                
+                margin: 0;
+                padding: 0;
+
+                float: right;
+                position: relative;
+                top: 50%;
+                right: 50%;
+                transform: translate(50%, 25%);
+
+                transition: color 500ms;
+
+                background: none;
+                border: none;
+                color: $calendarTdColor;
+
+                font-size: 50px;
+
+                }
+
+                button.day-assignment:hover {
+                    color: darken($calendarTdColor, 10%);
+                }
+
+
+                div.day-assignment-content {
+                    display: none;
+
+                    height: 200px;
+                    width: 300px;
+
+                    background: $calendarAssignmentDropBack;
+                    color: $calendarAssignmentDropColor;
+
+                    a:link, a:visited {
+                        color: $calendarAssignmentDropColor;
+                        
+                    }
+                }
+
+            }
     
         }
+
+        div.day-dropdown:active div.day-assignment-content,
+        div.day-assignment-content:hover {
+            display: block !important;
+        }
+
+        div.day-dropdown:active button,
+        div.day-dropdown:hover button {
+            display: none !important;
+        }
     
-        td.not-month {
+        td.day-square.not-month {
             background: $calendarNotMonthBack;
             color: $calendarNotMonthColor;
+        }
+
+        td.day-square.today {
+
+            border: $calendarTodayBorder;
+            background: $calendarTodayBack;
+            color: $calendarTodayColor;
+
         }
 
     }    

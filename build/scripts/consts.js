@@ -1,3 +1,5 @@
+const JSON_PATH = 'assignments/testClass.json'
+
 const MONTHS = [
     'January',
     'February',

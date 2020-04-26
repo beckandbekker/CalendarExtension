@@ -1,0 +1,4 @@
+
+function openCalendar() {
+    window.open('../')
+}
