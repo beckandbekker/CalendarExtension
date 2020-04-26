@@ -1,0 +1,89 @@
+
+$teamBack: $dark-grey;
+$teamColor: $white;
+
+$teamFontStack: $fontStack;
+
+$teamBorder: 2px solid $accentColor;
+$teamBorderRadius: 10px;
+
+$teamAssignmentBorderRadius: 5px;
+
+$teamAssignmentBack: $accentColor;
+$teamAssignmentBackOnHover: $emerald;
+
+// html, body {
+//     margin: 0;
+//     padding: 0;
+// }
+
+section#team {
+
+    width: 80%;
+    min-width: 500px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: $teamBorder;
+    border-radius: $teamBorderRadius;
+
+    background: $teamBack;
+    color: $teamColor;
+
+    font: 25px $teamFontStack;
+
+    h1 {
+        text-align: center;
+    }
+
+    
+
+
+    div#assignments {
+
+        // @for $i from 1 through length($teamAccents) {
+        //     a:nth-child(#{$i}) {
+        //         background: nth($teamAccents, $i);
+        //     }
+        // }
+
+        a {
+        
+            width: 80%;
+            
+            margin: 0 auto 1em auto;
+            padding: 0.5em 0;
+            
+            display: block;
+
+            transition: background 250ms, color 250ms;
+
+            border-radius: $teamAssignmentBorderRadius;
+            
+            text-align: center;
+
+        }
+
+        a:link, a:visited {
+
+            color: $teamColor;
+            background: $teamAssignmentBack;
+
+            text-decoration: none;
+
+        }
+
+        a:hover, a:active {
+            background: $teamAssignmentBackOnHover
+        }
+
+        a:last-child {
+            margin-bottom: 5%;
+        }        
+
+    }
+
+}
