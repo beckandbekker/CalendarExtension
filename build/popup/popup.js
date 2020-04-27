@@ -6,13 +6,13 @@ Messages.on(Messages.protocols.PONG, function () {
     console.log("Pong");
 });
 
-rescanTeamsButton.onclick = () => {
+rescanTeamsButton.onclick = function () {
     Messages.send(Messages.protocols.REQUEST_TEAMS_RESCAN);
 }
 
-scanHomeworkButton.onclick = () => {
+scanHomeworkButton.onclick = function () {
 }
 
-displayCalendarButton.onclick = () => {
+displayCalendarButton.onclick = function () {
 
 }
