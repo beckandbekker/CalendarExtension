@@ -59,13 +59,22 @@
     },
 
     "browser_action": {
-        "default_icon": "icons/icon.png",
+        "default_icon": "images/icons/icon256.png",
         "default_title": "MS Teams Homework Calendar",
         "default_popup": "popup/popup.html"
     },
 
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Alt+C",
+                "mac": "MacCtrl+Alt+C"
+            }
+        }
+    },
+
     "icons": {
-        "48": "icons/icon.png"
+        "256": "images/icons/icon256.png"
     },
     
     "manifest_version": 2
