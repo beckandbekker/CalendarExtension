@@ -1,5 +1,6 @@
-var rescanTeamsButton = document.getElementById("rescan_teams");
-var scanHomeworkButton = document.getElementById("scan_homework");
+var rescanTeamsButton = O("rescan_teams");
+var scanHomeworkButton = O("scan_homework");
+var displayCalendarButton = O("open_calendar");
 
 Messages.on(Messages.protocols.PONG, function () {
     console.log("Pong");
@@ -10,4 +11,8 @@ rescanTeamsButton.onclick = function () {
 }
 
 scanHomeworkButton.onclick = function () {
+}
+
+displayCalendarButton.onclick = function () {
+
 }
