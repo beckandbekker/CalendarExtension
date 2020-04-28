@@ -14,18 +14,25 @@ $popupButtonBackOnHover: $emerald;
 $popupButtonFontStack: $fontStack;
 $popupButtonFontSize: 20px;
 
-
-html {
+body {
+    
     width: 300px;
     height: 300px;
 
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
     background: $popupBack;
 
-    outline: 1px dashed red;
 }
 
 div {
-    
+
+    margin: 0;
+    padding: 0;
+
     position: absolute;
     top: 50%;
     left: 50%;

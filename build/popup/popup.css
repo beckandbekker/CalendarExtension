@@ -1,1 +1,34 @@
-html{width:300px;height:300px;background:#34495e;outline:1px dashed red}div{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}div button{width:200px;height:60px;margin:10px auto;display:block;border:none;border-radius:30px;transition:background 500ms;background:#3498db;color:#fff;font:20px "Trebuchet MS",sans-serif}div button:hover{background:#2ecc71}
+/***** COLOR VARIABLES *****/
+/***** THEME VARIABLES *****/
+body {
+  width: 300px;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #34495e;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+div button {
+  width: 200px;
+  height: 60px;
+  margin: 10px auto;
+  display: block;
+  border: none;
+  border-radius: 30px;
+  transition: background 500ms;
+  background: #3498db;
+  color: white;
+  font: 20px "Trebuchet MS", sans-serif;
+}
+div button:hover {
+  background: #2ecc71;
+}
